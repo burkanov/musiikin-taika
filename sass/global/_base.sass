@@ -1,0 +1,66 @@
+html
+	color: $text
+	font-size: $base-font-size
+	font-family: $base-font-family
+	font-weight: 400
+	line-height: 1.4
+	padding: 0.25rem
+
+::-moz-selection
+	background: $selection-background-color
+	color: $black
+	text-shadow: none
+
+::selection
+	background: $selection-background-color
+	color: $black
+	text-shadow: none
+
+a
+	@extend %common-transition
+	cursor: pointer
+	color: $blue
+	&:hover,
+	&:focus,
+	&:active
+		color: $blue-dark
+
+.base_container
+	display: block
+	margin: 0 1rem
+
+@media screen and (min-width: 67em)
+	.base_container
+		margin: 0 auto
+		max-width: 65rem
+
+.headline_large,
+.headline_medium,
+.headline_small
+	font-family: $headline-font-family
+	margin: 0
+	&+ p
+		margin-top: 0
+
+strong
+	font-weight: 500
+
+.headline_large,
+.headline_medium
+	margin: 1.8rem 0 1rem
+	color: $blue-soft
+
+.headline_large
+	font-size: 1.75rem
+	font-weight: 700
+
+.headline_medium
+	font-weight: 500
+	font-size: 1.5rem
+	color: $blue-soft
+	border-bottom: 1px solid rgba(0, 0, 0, 0.15)
+
+.headline_small
+	font-size: 1.25rem
+	font-weight: 400
+	color: $lila

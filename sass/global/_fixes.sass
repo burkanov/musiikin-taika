@@ -1,0 +1,105 @@
+// Transition operations
+// -------------------------
+
+%common-transition
+	+addTransition
+
+%no-transition
+	+removeTransition
+
+
+
+// Clearfix methods
+// -------------------------
+
+%clearfix:before,
+%clearfix:after
+	content: " " /* 1 */
+	display: table /* 2 */
+
+%clearfix:after
+	clear: both
+
+@mixin clearfix
+	&:before,
+	&:after
+		content: " " /* 1 */
+		display: table /* 2 */
+	&:after
+		clear: both
+
+
+// Hiding methods
+// -------------------------
+
+/*
+ * Hide visually and from screen readers:
+ */
+
+%hidden
+	display: none !important
+
+/*
+ * Hide only visually, but have it available for screen readers:
+ * http://snook.ca/archives/html_and_css/hiding-content-for-accessibility
+ */
+
+%away
+	border: 0
+	clip: rect(0 0 0 0)
+	height: 1px
+	margin: -1px
+	overflow: hidden
+	padding: 0
+	position: absolute
+	width: 1px
+
+/*
+ * Extends the .visuallyhidden class to allow the element
+ * to be focusable when navigated to via the keyboard:
+ * https://www.drupal.org/node/897638
+ */
+
+%away.focusable:active,
+%away.focusable:focus
+	clip: auto
+	height: auto
+	margin: 0
+	overflow: visible
+	position: static
+	width: auto
+
+/*
+ * Hide visually and from screen readers, but maintain layout
+ */
+
+%invisible
+	visibility: hidden
+
+
+
+// Boxes
+// -------------------------
+
+%insider
+	+box-sizing(border-box)
+
+%simple-flex
+	+flexbox()
+	> *
+		+flex(auto)
+
+@mixin simple-flex
+	+flexbox()
+	> *
+		+flex(auto)
+
+%rounded
+	+border-radius(0.25rem)
+
+// Stripe down
+// -------------------------
+%striped
+	margin: 0
+	padding: 0
+	border: none
